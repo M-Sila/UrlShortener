@@ -20,6 +20,8 @@ builder.Services.AddScoped<IClickRepository, ClickRepository>();
 builder.Services.AddScoped<ILinkRepository, LinkRepository>();
 builder.Services.AddScoped<LinkService>();
 
+builder.Services.AddSingleton<IClickQueue, ClickQueue>();
+builder.Services.AddHostedService<ClickBackgroundService>();
 
 var app = builder.Build();
 

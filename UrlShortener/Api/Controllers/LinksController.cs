@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using UrlShortener.Application.DTOs;
 using UrlShortener.Application.Services;
 
 namespace UrlShortener.Api.Controllers
@@ -13,10 +14,26 @@ namespace UrlShortener.Api.Controllers
         {
             _linkService = linkService;
         }
+
         [HttpPost]
-        public async Task<ActionResult> CreateLink()
+        public async Task<CreateLinkResponse> CreateLink(CreateLinkRequest request)
         {
-            return Ok();
+            var result = await _linkService.CreateLinkAsync(request);
+            return result;
+        }
+
+        [HttpGet("{slug}")]
+        public async Task<GetLinkResponse> GetLink(string slug)
+        {
+            var result = await _linkService.GetLinkAsync(slug);
+            return result;
+        }
+
+        [HttpDelete("{slug}")]
+        public async Task<ActionResult> DeleteLink(string slug)
+        {
+            var result = await _linkService.DeleteLinkAsync(slug);
+            return result;
         }
     }
 }
