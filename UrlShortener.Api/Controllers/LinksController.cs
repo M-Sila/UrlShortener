@@ -30,7 +30,7 @@ namespace UrlShortener.Api.Controllers
         }
 
         [HttpDelete("{slug}")]
-        public async Task<ActionResult> DeleteLink(string slug)
+        public async Task<bool> DeleteLink(string slug)
         {
             var result = await _linkService.DeleteLinkAsync(slug);
             return result;

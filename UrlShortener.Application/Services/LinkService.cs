@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using UrlShortener.Application.DTOs;
+﻿using UrlShortener.Application.DTOs;
 using UrlShortener.Domain.Entities;
 using UrlShortener.Domain.Repositories;
 
@@ -118,7 +117,7 @@ namespace UrlShortener.Application.Services
             return await _linkRepository.SlugExistsAsync(slug);
         }
 
-        public async Task<ActionResult> DeleteLinkAsync(string slug)
+        public async Task<bool> DeleteLinkAsync(string slug)
         {
             if (!await DoesSlugExistAsync(slug))
             {
@@ -130,7 +129,7 @@ namespace UrlShortener.Application.Services
             link.IsDisabled = true;
             await _linkRepository.UpdateAsync(link);
 
-            return new NoContentResult();
+            return true;
         }
 
         public async Task<Link?> ResolveAsync(

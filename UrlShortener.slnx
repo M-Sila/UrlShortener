@@ -1,4 +1,11 @@
 <Solution>
-  <Project Path="UrlShortener/UrlShortener.csproj" />
-  <Project Path="UrlShortenerTest/UrlShortenerTest.csproj" Id="38b2f5a7-5024-4a91-9078-7f7a5bc89cee" />
+  <Folder Name="/src/">
+    <Project Path="UrlShortener.Api/UrlShortener.Api.csproj" Id="2d38b386-a3b9-4bab-b72a-c0ad72102a09" />
+    <Project Path="UrlShortener.Application/UrlShortener.Application.csproj" Id="b5cbda9c-52b3-4786-a7e5-cce639c5403b" />
+    <Project Path="UrlShortener.Domain/UrlShortener.Domain.csproj" Id="9ed60974-feec-4582-8889-0576c3bb84b9" />
+    <Project Path="UrlShortener.Infrastructure/UrlShortener.Infrastructure.csproj" Id="ad812035-6725-4e95-b01d-33b4e94202d2" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="UrlShortenerTest/UrlShortenerTest.csproj" Id="38b2f5a7-5024-4a91-9078-7f7a5bc89cee" />
+  </Folder>
 </Solution>
